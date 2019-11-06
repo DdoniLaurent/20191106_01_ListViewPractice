@@ -17,13 +17,34 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+
+        setUpEvent()
+        setValues()
+
+
+    }
+
+    fun setValues(){
         addNoties()
 
         noticeAdapter = NoticeAdapter(this, noticeList)
         noticeListView.adapter = noticeAdapter
+    }
+
+    fun setUpEvent(){
+        addNoticeBtn.setOnClickListener {
+            noticeList.add(NoticeData("새 공지사항", "내용도 적어봅니다.", "2019-11-06"))
+
+//            데이터 변경사항 => 리스트뷰에 반영
+            noticeAdapter?.notifyDataSetChanged()
+
+//            10칸 => 9반. 150칸 => 149
+            noticeListView.smoothScrollToPosition(noticeList.size-1)
+        }
+
 
         noticeListView.setOnItemClickListener { parent, view, position, id ->
-//            Toast.makeText(this, "${position} 번째 줄 클릭", Toast.LENGTH_LONG).show()
+            //            Toast.makeText(this, "${position} 번째 줄 클릭", Toast.LENGTH_LONG).show()
             var noticeData = noticeList.get(position)
             var intent = Intent(this, NoticeDetailActivity::class.java)
             intent.putExtra("noticeData", noticeData)
