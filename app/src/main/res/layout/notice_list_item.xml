@@ -9,6 +9,7 @@
         android:orientation="horizontal"
         android:padding="10dp">
         <TextView
+            android:id="@+id/titleTxt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="#000000"
@@ -19,6 +20,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"/>
         <TextView
+            android:id="@+id/dateTxt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="2019-11-06"/>
@@ -38,6 +40,7 @@
         android:layout_height="1dp"
         android:background="#EFFEEF"/>
     <TextView
+        android:id="@+id/contentTxt"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="10dp"
